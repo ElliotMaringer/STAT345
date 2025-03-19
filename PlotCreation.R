@@ -33,7 +33,7 @@ ggplot() +
   ) +
   coord_fixed() +  # keep aspect ratio consistent
   scale_color_manual(
-    values = c("FALSE" = bucks_green, "TRUE" = "red"),
+    values = c("FALSE" = "red", "TRUE" = bucks_green),
     name = "Shot Result"
   ) +
   labs(
@@ -63,7 +63,7 @@ ggplot() +
   ) +
   coord_fixed() +  # keep aspect ratio consistent
   scale_color_manual(
-    values = c("FALSE" = bucks_green, "TRUE" = bucks_cream),
+    values = c("FALSE" = "red", "TRUE" = bucks_green),
     name = "Shot Result"
   ) +
   labs(
