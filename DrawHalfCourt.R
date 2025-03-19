@@ -5,7 +5,7 @@ draw_half_court <- function(line_color = "#000000", court_background = "white") 
     # Court background (half-court: x from -250 to 250, y from 0 to 470)
     annotate("rect",
              xmin = -250, xmax = 250,
-             ymin = 0,    ymax = 400,
+             ymin = -30,    ymax = 400,
              fill = court_background, color = line_color),
     
     
@@ -17,7 +17,7 @@ draw_half_court <- function(line_color = "#000000", court_background = "white") 
     # Free throw lane
     annotate("rect",
              xmin = -70, xmax = 70,
-             ymin = 0,   ymax = 170,
+             ymin = -30,   ymax = 160,
              fill = NA, color = line_color),
     
     # Free throw circle 
@@ -25,10 +25,10 @@ draw_half_court <- function(line_color = "#000000", court_background = "white") 
     annotate(
       "path",
       x = 70* cos(seq(0, 2*pi, length.out = 200)),
-      y = 170 +  70* sin(seq(0, 2*pi, length.out = 200)),
+      y = 160 +  70* sin(seq(0, 2*pi, length.out = 200)),
       color = line_color),
     
-    ##Middle circle
+    #Middle circle
     annotate(
       "path",
       x = 60 * cos(seq(pi, 2*pi, length.out = 200)),
@@ -37,34 +37,34 @@ draw_half_court <- function(line_color = "#000000", court_background = "white") 
     
     
     
-    # Rim (circle at center = (0, 60))
+    # Rim 
     annotate("path",
              x = 7.5 * cos(seq(0, 2*pi, length.out = 100)),
-             y = 15 + 7.5 * sin(seq(0, 2*pi, length.out = 100)),
+             y = 7.5 * sin(seq(0, 2*pi, length.out = 100)),
              color = "orange", size = 1.2),
     
-    # Backboard (just above the rim)
+    # Backboard 
     annotate("segment",
              x = -30, xend = 30,
-             y = 15,  yend = 15,
+             y = 0,  yend = 0,
              color = line_color, size = 1.5),
     
-    ##Three point line
+    #Three point line
     
     annotate("segment",
              x = -220, xend = -220,
-             y = 0,  yend = 40,
+             y = -30,  yend = 35,
              color = line_color),
     
     annotate("segment",
              x = 220, xend = 220,
-             y = 0,  yend = 40,
+             y = -30,  yend = 35,
              color = line_color),
     
     annotate(
       "path",
       x = 220 * cos(seq(0, pi, length.out = 200)),
-      y = 40 + 220 * sin(seq(0, pi, length.out = 200)),
+      y = 35 + 220 * sin(seq(0, pi, length.out = 200)),
       color = line_color
       
     )
