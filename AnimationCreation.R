@@ -1,8 +1,16 @@
-AnimationCreation <- function(data, startSeason, endSeason) {
+AnimationCreation <- function(startSeason, endSeason) {
   seasons <- startSeason:endSeason
+  num_seasons <- length(seasons)
+  nframes <- 20 * num_seasons
   
-  AllSeasonsHalf <- filter(data, data$locationY < 400)
-  ggplot() +
+  allSeasonsBucks <- map_dfr(seasons, ~teams_shots(teams = "Milwaukee Bucks", team_ids = NULL,
+                                                   all_active_teams = F, season_types = "Regular Season", seasons = .x,
+                                                   measures = "FGA", periods = 0, months = 0, date_from = NA,
+                                                   date_to = NA, nest_data = F, return_message = T) 
+  )
+  
+  AllSeasonsHalf <- filter(allSeasonsBucks, allSeasonsBucks$locationY < 400)
+  animation <- ggplot() +
     # Draw the court first
     draw_half_court(line_color = "black", court_background = "white") +
     # Plot shots
@@ -19,7 +27,7 @@ AnimationCreation <- function(data, startSeason, endSeason) {
       labels = c("FALSE" = "Miss", "TRUE" = "Make")
     ) +
     labs(
-      title = "Milwaukee Bucks Shot Locations",
+      title = paste0("Milwaukee Bucks Shot Locations from ", startSeason, " to ", endSeason),
       subtitle = "Colored by shot outcome",
       x = NULL,
       y = NULL
@@ -35,5 +43,8 @@ AnimationCreation <- function(data, startSeason, endSeason) {
       plot.background = element_rect(fill = "white", color = NA)
     ) +
     guides(color = guide_legend(override.aes = list(alpha = 1, size = 4))) +
-    transition_states(yearSeason, transition_length = 10, state_length = 5) 
+    transition_states(yearSeason, transition_length = 1, state_length = 2) 
+  
+  animationFinal <- animate(animation, nframes = nframes, fps = 5)
+  return(animationFinal)
 }
