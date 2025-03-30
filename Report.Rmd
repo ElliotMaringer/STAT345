@@ -1,0 +1,71 @@
+---
+title: "STAT 345 Midterm Project"
+author: "Elliot Maringer"
+date: "2025-03-30"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Intro
+
+This report provides a detailed analysis of the Milwaukee Bucks basketball 
+team and their shooting trends over the years. Below is an animation that visualizes
+the Milwaukee Bucks shot chart from 2013 to 2019. This can be easily modified to fit any valid range of years where data is available.
+
+```{r cars}
+AnimationCreation(2013, 2019)
+```
+
+## Key Analysis
+
+Analyzing the animation above we can identify a few key trends
+-(1) Percentage of shots that are three-pointers have increased greatly
+-(2) Percentage of shots that are "layups" or are close to the basket have 
+increased slightly as well have the percentage of these shots
+-(3) Percettage of shots that are "mid-ranged" have decreased dramatically
+
+## Further Analysis
+
+Diving into each of our key points above we can provide a greater insight into 
+why this change is occuring
+
+-(1) The increase in three-pointers can be attributed to the strategic shift in 
+todays game. With the development of better three point shooters, teams are more
+keen to settle for an open three-point shot than a contested layup or midrange. 
+This strategy of having more people on the three point line also requires the 
+defense to be more spread out and gaurd more of the court. This allows teams 
+with above average ball movement to be able to find the open man at the three 
+point line.
+
+-(2) The consistent percentage of close range attempts will allow teams to 
+continuously rely on these shots. But the evolution of the game in other areas 
+has had an indirect affect on the number of these shots being taken. The 
+spreading of the defense because of the threat of the three point shot has 
+allowed for more high percentage shots in the paint. 
+
+-(3) The affects of points (1) and (2) have had a direct impact on the decline 
+of the mid-range shot. Teams are more inclined to take an open three-pointer or 
+a layup than an off the dribble mid-range shot. This is again due to the efficiency 
+of the three-point shot and close shots compared to a mid-range shot. The effect 
+of having the ball in the mid-range compared to on the three point line 
+collapses the defense and influences this mid-range shot to be not as efficient.
+
+## 4-point-shot
+
+To answer the question "Where should the four-point line hypothetically be drawn 
+an NBA court?", I examined shooting data from the 2019 Bucks season. I chose this
+data because it is more recent and it gives a more accurate three-point shooting 
+percentage given the NBA's trend of mass three-point shooting. To determine where 
+the line should be drawn I performed expected value calculations by examining the 
+shooting percentages from two and three point. I noted that they were both around 
+1 point per shot. I wanted the four point line to be at least 1 so it can compete 
+with both other options. But I wanted it to be slightly higher to persuade players 
+to take these difficult shots. After continuously manipulating the distance of the 
+four-point line and calculating its expected value I landed on 29 feet from the 
+basket. This allows for an expected value slightly higher than a two or three pointer
+while also keeping the shooting percentage at a low 30%, making this a "risky" 
+shot to take.
+
